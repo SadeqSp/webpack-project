@@ -1,3 +1,6 @@
 require('./index.css');
 
-alert('webpack');
+const func = (msg) => {
+    alert(msg);
+}
+func('webpack');

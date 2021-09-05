@@ -1,4 +1,4 @@
-require('./index.css');
+require('./index.scss');
 
 const func = (msg) => {
     alert(msg);

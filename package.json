@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/SadeqSp/webpack-project/issues"
   },
-  "homepage": "https://github.com/SadeqSp/webpack-project#readme"
+  "homepage": "https://github.com/SadeqSp/webpack-project#readme",
+  "devDependencies": {
+    "webpack": "^5.52.0",
+    "webpack-cli": "^4.8.0"
+  }
 }

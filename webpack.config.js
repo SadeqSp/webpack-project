@@ -1,7 +1,7 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const PurgecssWebpackPlugin = require('purgecss-webpack-plugin');
-const CreateManifestPlugin = require('./webpack-plugins/create-manifest-class');
+const CreateManifestPlugin = require('./webpack-plugins/create-manifest-function');
 const glob = require('glob');
 const path = require('path');
 

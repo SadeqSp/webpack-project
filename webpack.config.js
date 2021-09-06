@@ -4,6 +4,7 @@ const PurgecssWebpackPlugin = require('purgecss-webpack-plugin');
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 const glob = require('glob');
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
     mode: "development",
@@ -53,6 +54,10 @@ module.exports = {
         new WebpackManifestPlugin({
             basePath: '',
             publicPath: '',
+        }),
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery',
         }),
     ]
 }

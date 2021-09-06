@@ -1,4 +1,1 @@
-const func = (msg) => {
-    alert(msg);
-}
-func('webpack');
+$('span').html('text from jquery');

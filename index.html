@@ -20,12 +20,12 @@
             axios.get('dist/manifest.json')
                 .then(res => {
                     let appCss = document.getElementById('appCss');
-                    appCss.href = 'dist/' + res.data.app[0];
+                    appCss.href = 'dist/' + res.data["app.css"];
                     let appJs = document.getElementById('appJs');
-                    appJs.src = 'dist/' + res.data.app[1];
+                    appJs.src = 'dist/' + res.data["app.js"];
                 })
                 .catch(err => {
-                    alert(err);
+                    console.log(err);
                 });
         };
         styles();
@@ -38,9 +38,9 @@
         //     })
         //     .then(data => {
         //         let appCss = document.getElementById('appCss');
-        //         appCss.href = 'dist/' + data.app[0];
+        //         appCss.href = 'dist/' + data["app.css"];
         //         let appJs = document.getElementById('appJs');
-        //         appJs.src = 'dist/' + data.app[1];
+        //         appJs.src = 'dist/' + data["app.js"];
         //     })
         //     .catch(err => {
         //         console.log(err);

@@ -1,5 +1,8 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const PurgecssWebpackPlugin = require('purgecss-webpack-plugin');
+const glob = require('glob');
+const path = require('path');
 
 module.exports = {
     mode: "development",
@@ -10,7 +13,7 @@ module.exports = {
         ],
     },
     output: {
-        path: require('path').resolve(__dirname + '/dist'),
+        path: path.resolve(__dirname + '/dist'),
         filename: '[name].js',
     },
     module: {
@@ -42,6 +45,9 @@ module.exports = {
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
             filename: '[name].css',
+        }),
+        new PurgecssWebpackPlugin({
+            paths: glob.sync(path.join(__dirname, 'index.html')),
         }),
     ]
 }

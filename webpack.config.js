@@ -14,7 +14,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname + '/dist'),
-        filename: '[name].js',
+        filename: '[name]-[contenthash].js',
     },
     module: {
         rules: [
@@ -26,7 +26,7 @@ module.exports = {
                 test: /\.(png|jpe?g|gif|svg)$/i,
                 type: 'asset/resource',
                 generator: {
-                    filename: '[path][name][ext]',
+                    filename: '[path][name]-[hash][ext]',
                 }
             },
             {
@@ -44,7 +44,7 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
-            filename: '[name].css',
+            filename: '[name]-[contenthash].css',
         }),
         new PurgecssWebpackPlugin({
             paths: glob.sync(path.join(__dirname, 'index.html')),

@@ -1,6 +1,7 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const PurgecssWebpackPlugin = require('purgecss-webpack-plugin');
+const CreateManifestPlugin = require('./webpack-plugins/create-manifest-class');
 const glob = require('glob');
 const path = require('path');
 
@@ -49,5 +50,6 @@ module.exports = {
         new PurgecssWebpackPlugin({
             paths: glob.sync(path.join(__dirname, 'index.html')),
         }),
+        new CreateManifestPlugin(),
     ]
 }

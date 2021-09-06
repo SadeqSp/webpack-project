@@ -49,12 +49,16 @@ module.exports = {
             filename: '[name]-[contenthash].css',
         }),
         new PurgecssWebpackPlugin({
-            paths: glob.sync(path.join(__dirname, 'index.html')),
+            paths: glob.sync(path.join(__dirname, 'base.html')),
         }),
         new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery',
         }),
-        new HtmlWebpackPlugin(),
+        new HtmlWebpackPlugin({
+            template: 'base.html',  // renamed old index.html
+            filename: '../index.html',
+            inject: 'body',
+        }),
     ]
 }

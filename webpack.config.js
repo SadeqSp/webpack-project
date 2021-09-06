@@ -1,5 +1,6 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { resourceUsage } = require('process');
 
 module.exports = {
     mode: "development",
@@ -17,14 +18,14 @@ module.exports = {
         rules: [
             {
                 test: /\.s[ac]ss$/,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    {
-                        loader: 'css-loader',
-                        options: { url: false },
-                    },
-                    'sass-loader'
-                ],
+                use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg)$/i,
+                type: 'asset/resource',
+                generator: {
+                    filename: '[path][name][ext]',
+                }
             },
             {
                 test: /\.m?js$/,

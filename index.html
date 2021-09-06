@@ -6,48 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Webpack projects</title>
-    <link rel="stylesheet" id="appCss">
 </head>
 
 <body>
     <span>SPAN</span>
-
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script>
-        
-        // AXIOS
-        const styles = () => {
-            axios.get('dist/manifest.json')
-                .then(res => {
-                    let appCss = document.getElementById('appCss');
-                    appCss.href = 'dist/' + res.data["app.css"];
-                    let appJs = document.getElementById('appJs');
-                    appJs.src = 'dist/' + res.data["app.js"];
-                })
-                .catch(err => {
-                    console.log(err);
-                });
-        };
-        styles();
-
-
-        // FETCH
-        // fetch('dist/manifest.json')
-        //     .then(res => {
-        //         return res.json();
-        //     })
-        //     .then(data => {
-        //         let appCss = document.getElementById('appCss');
-        //         appCss.href = 'dist/' + data["app.css"];
-        //         let appJs = document.getElementById('appJs');
-        //         appJs.src = 'dist/' + data["app.js"];
-        //     })
-        //     .catch(err => {
-        //         console.log(err);
-        //     });
-
-    </script>
-    <script id="appJs"></script>
 </body>
 
 </html>

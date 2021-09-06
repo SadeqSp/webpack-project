@@ -1,7 +1,7 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const PurgecssWebpackPlugin = require('purgecss-webpack-plugin');
-const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const glob = require('glob');
 const path = require('path');
 const webpack = require('webpack');
@@ -51,13 +51,10 @@ module.exports = {
         new PurgecssWebpackPlugin({
             paths: glob.sync(path.join(__dirname, 'index.html')),
         }),
-        new WebpackManifestPlugin({
-            basePath: '',
-            publicPath: '',
-        }),
         new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery',
         }),
+        new HtmlWebpackPlugin(),
     ]
 }
